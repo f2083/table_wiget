@@ -4,8 +4,7 @@ const http         = require('http'),
       contentTypes = require('./utils/content-types'),
       sysInfo      = require('./utils/sys-info'),
       express      = require('express'),
-      env          = process.env,
-      cl           = require('./modules/cl');
+      env          = process.env;
 
 var app = express();
 app.use(express.static('public')); 
@@ -13,8 +12,6 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
-
-app.get('/images', cl);
 
 app.use(function(req, res, next) {
   /*res.status(404).send('Sorry cant find that!');*/
